@@ -6,7 +6,7 @@ Connect and control StreamIt Lisa devices via LiveCom.
 
 ## Installation 
 
-    npm install @customchannels/lisalive
+    npm install lisalive
 
 
 ## Usage 
@@ -18,7 +18,7 @@ var serial = 'xxxxxx';
 var token = 'xxxxxx';
 var pusherAppToken = 'xxxxxx';
 
-var LisaLive = require('lisalive');
+import LisaLive from 'lisalive';
 
 var LL = new LisaLive(serial, token, pusherAppToken);
 
@@ -33,6 +33,20 @@ LL.connect(function(){
         console.log(response);
     });
 
+});
+
+// disconnect
+LL.disconnect(function(){
+    console.log('disconnected');
+});
+
+// listen to events
+LL.on('disconnect', function(msg){
+    console.log(msg);
+});
+
+LL.on('error', function(msg){
+    console.error(msg);
 });
 
 ```
