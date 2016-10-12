@@ -6,7 +6,7 @@ Connect and control StreamIt Lisa devices via LiveCom.
 
 ## Installation 
 
-    `npm install @customchannels/lisalive`
+    npm install @customchannels/lisalive
 
 
 ## Usage 
