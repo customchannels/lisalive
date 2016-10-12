@@ -4,12 +4,12 @@ LisaLive
 Connect and control StreamIt Lisa devices via LiveCom.
 
 
-## Installation 
+## Installation
 
     npm install lisalive
 
 
-## Usage 
+## Usage
 
 Connect to a device and send a command.
 
@@ -25,7 +25,7 @@ var LL = new LisaLive(serial, token, pusherAppToken);
 // turn on debugging
 LL.debug();
 
-// send a connect device
+// connect to the device
 LL.connect(function(){
 
     // send a status command to the device
@@ -51,12 +51,27 @@ LL.on('error', function(msg){
 
 ```
 
+## Available Commands
+
+Command | Description 
+--- | ---
+`isp` | retrieve ip and provider information
+`status` | get the player status 
+`volume` | get the current volume
+`volume [0-31]` | set the volume between 0-31
+`ps [1-32]` | play station 1-32
+`pw [0|1]` | power on or off player
+`ud` | update the configuration
+`channel` | get channels programmed
+`curchan` | get the current channel
+`restart` | restart the player
+
 ## Tests
 
 Coming Soon!
 
 ## Contributing
 
-Send a pull request. 
+Send a pull request.
 
 
