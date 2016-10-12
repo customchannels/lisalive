@@ -1,0 +1,34 @@
+{
+  "name": "lisalive",
+  "version": "1.0.0",
+  "description": "Lisa StreamIt Command Library",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --presets babel-preset-es2015 --out-dir dist",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/customchannels/lisalive.git"
+  },
+  "keywords": [
+    "streamit",
+    "lisa",
+    "lisalive",
+    "livecom"
+  ],
+  "author": "Steve Barbera <steve@customchannels.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/customchannels/lisalive/issues"
+  },
+  "homepage": "https://github.com/customchannels/lisalive#readme",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0"
+  },
+  "dependencies": {
+    "pusher-js": "^3.2.1"
+  }
+}
