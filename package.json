@@ -1,6 +1,6 @@
 {
   "name": "lisalive",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lisa StreamIt Command Library",
   "main": "./dist/index.js",
   "scripts": {
