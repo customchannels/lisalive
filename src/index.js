@@ -40,7 +40,7 @@ class LisaLive {
 
         var self = this;
 
-        this.Push.connection.bind('error', function(err){
+        this.Pusher.connection.bind('error', function(err){
             self._log(err);
         });
 
