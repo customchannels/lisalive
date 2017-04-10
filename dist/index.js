@@ -43,6 +43,7 @@ var LisaLive = function () {
             this.Pusher = new Pusher(this.pusherAppKey, {
                 authEndpoint: 'https://service.streamit.eu/livecom',
                 authTransport: 'jsonp',
+                disableStats: true,
                 auth: {
                     params: {
                         deviceToken: this.token
@@ -52,35 +53,47 @@ var LisaLive = function () {
 
             var self = this;
 
+            this.Push.connection.bind('error', function (err) {
+                self._log(err);
+            });
+
             this.Pusher.connection.bind('connected', function (response) {
+                self._log('Connected to Pusher');
+                self.subscribe(callback);
+            });
+        }
+    }, {
+        key: 'subscribe',
+        value: function subscribe(callback) {
 
-                self._log('connected to pusher app');
+            var self = this;
 
-                self.channelName = 'presence-device-' + self.serial;
+            self.channelName = 'presence-device-' + self.serial;
 
-                self.channel = self.Pusher.subscribe(self.channelName);
+            self._log('Connecting to channel room: ' + self.channelName);
 
-                self.channel.bind('pusher:subscription_error', function (status) {
-                    console._log(status);
-                });
+            self.channel = self.Pusher.subscribe(self.channelName);
 
-                self.channel.bind('pusher:subscription_succeeded', function (members) {
+            self.channel.bind('pusher:subscription_error', function (status) {
+                console._log(status);
+            });
 
-                    if (self._devicePresent(members)) {
+            self.channel.bind('pusher:subscription_succeeded', function (members) {
 
-                        // // turn on the disconnect timer
-                        self._unsubscribeTimer();
+                if (self._devicePresent(members)) {
 
-                        self._log('connected to device');
-                        self.connected = true;
-                        self.binds();
+                    // // turn on the disconnect timer
+                    self._unsubscribeTimer();
 
-                        // handle connection callback
-                        callback();
-                    } else {
-                        self.publish('error', 'Can\'t connect to device.');
-                    }
-                });
+                    self._log('connected to device');
+                    self.connected = true;
+                    self.binds();
+
+                    // handle connection callback
+                    callback();
+                } else {
+                    self.publish('error', 'Can\'t connect to device.');
+                }
             });
         }
 

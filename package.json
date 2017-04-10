@@ -1,6 +1,6 @@
 {
   "name": "lisalive",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Lisa StreamIt Command Library",
   "main": "./dist/index.js",
   "scripts": {
@@ -29,6 +29,6 @@
     "babel-preset-es2015": "^6.16.0"
   },
   "dependencies": {
-    "pusher-js": "^3.2.1"
+    "pusher-js": "^4.0.0"
   }
 }
