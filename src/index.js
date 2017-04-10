@@ -3,7 +3,7 @@ var Pusher = require('pusher-js');
 class LisaLive {
 
     constructor(serial, token, pusherAppKey){
-        this.serial = serial;
+        this.serial = serial.toLowerCase();
         this.token = token;
         this.pusherAppKey = pusherAppKey;
         this.debugOn = false;
