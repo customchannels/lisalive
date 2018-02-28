@@ -51,9 +51,13 @@ var LisaLive = function () {
                 }
             });
 
+            if (this.debugOn) {
+                this.Pusher.logToConsole = true;
+            }
+
             var self = this;
 
-            this.Push.connection.bind('error', function (err) {
+            this.Pusher.connection.bind('error', function (err) {
                 self._log(err);
             });
 

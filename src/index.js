@@ -38,6 +38,10 @@ class LisaLive {
             }
         });
 
+        if(this.debugOn){
+            this.Pusher.logToConsole = true;
+        }
+
         var self = this;
 
         this.Pusher.connection.bind('error', function(err){
