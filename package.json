@@ -29,6 +29,6 @@
     "babel-preset-es2015": "^6.16.0"
   },
   "dependencies": {
-    "pusher-js": "^4.0.0"
+    "pusher-js": "^4.3.1"
   }
 }
